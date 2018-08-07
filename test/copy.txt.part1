@@ -1,0 +1,5 @@
+public class BinaryNum {
+
+    public static void main(String[] args) {
+        //二进制表示
+   

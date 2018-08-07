@@ -1,0 +1,5 @@
+;
+        BinaryNum s = new BinaryNum();
+
+        double ss = 10.0 % 3.0;
+        System.out.println
