@@ -1,4 +1,4 @@
-package InnetDemo;
+package SocketDemo;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

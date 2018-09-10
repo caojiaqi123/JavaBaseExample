@@ -1,8 +1,6 @@
-package InnetDemo.ChatRoom2;
+package SocketDemo.ChatRoom3;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -35,12 +33,15 @@ public class Server {
         private DataInputStream dis;
         //服务端输出数据
         private DataOutputStream dos;
+        private String clientName;
         private boolean isRunning = true;
 
         public MyChannels(Socket client) {
             try {
                 dis = new DataInputStream(client.getInputStream());
                 dos = new DataOutputStream(client.getOutputStream());
+                this.clientName = dis.readUTF();
+                System.out.println("欢迎进入聊天室" + this.clientName);
             } catch (IOException e) {
                 isRunning = false;
                 CloseUtile.close(dis, dos);

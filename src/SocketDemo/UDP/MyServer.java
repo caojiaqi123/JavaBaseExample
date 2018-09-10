@@ -1,13 +1,10 @@
-package InnetDemo.UDP;
-
-import com.google.common.io.ByteArrayDataInput;
+package SocketDemo.UDP;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
 
 /**
  * @description 服务端
