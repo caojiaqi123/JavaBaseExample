@@ -1,11 +1,8 @@
-package InnetDemo.ChatRoom2;
-
-import sun.misc.Cleaner;
+package SocketDemo.ChatRoom3;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 /**
@@ -20,7 +17,6 @@ public class Receive implements Runnable {
 
     public Receive(Socket client) {
         try {
-
             dis = new DataInputStream(new BufferedInputStream(client.getInputStream()));
         } catch (IOException e) {
             isRunning = false;

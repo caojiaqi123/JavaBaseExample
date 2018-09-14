@@ -1,4 +1,4 @@
-package InnetDemo.ChatRoom2;
+package SocketDemo.ChatRoom2;
 
 import java.io.Closeable;
 import java.io.IOException;

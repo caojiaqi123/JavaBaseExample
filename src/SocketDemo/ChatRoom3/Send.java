@@ -1,6 +1,4 @@
-package InnetDemo.ChatRoom2;
-
-import com.sun.deploy.util.StringUtils;
+package SocketDemo.ChatRoom3;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -14,6 +12,7 @@ public class Send implements Runnable {
     //管道输出流
     private DataOutputStream dos;
     private Socket client;
+    private String clientNme;
     //控制标示
     private boolean isRunning = true;
 
@@ -21,11 +20,13 @@ public class Send implements Runnable {
         console = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Send(Socket client) {
+    public Send(Socket client, String name) {
         this();
         this.client = client;
+        this.clientNme = name;
         try {
             dos = new DataOutputStream(client.getOutputStream());
+            send(this.clientNme);
         } catch (IOException e) {
             //  e.printStackTrace();
             isRunning = false;
@@ -36,23 +37,20 @@ public class Send implements Runnable {
     @Override
     public void run() {
         while (isRunning) {
-            send();
+            try {
+                String msg = console.readLine();
+                send(msg);
+            } catch (IOException e) {
+                isRunning = false;
+                CloseUtile.close(dos, console);
+            }
         }
     }
 
-    private void send() {
-        String msg;
-        try {
-            msg = console.readLine();
-
-            if (null != msg && !msg.equals("")) {
-                dos.writeUTF(msg);
-                dos.flush();
-            }
-        } catch (IOException e) {
-            isRunning = false;
-            CloseUtile.close(dos, console);
+    private void send(String msg) throws IOException {
+        if (null != msg && !msg.equals("")) {
+            dos.writeUTF(msg);
+            dos.flush();
         }
-
     }
 }
