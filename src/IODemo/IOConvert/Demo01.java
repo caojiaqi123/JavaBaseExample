@@ -1,7 +1,6 @@
 package IODemo.IOConvert;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 
 public class Demo01 {
     public static void main(String[] args) throws UnsupportedEncodingException {
