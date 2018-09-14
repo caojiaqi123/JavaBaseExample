@@ -8,9 +8,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * tcp
+ * tcp server端 可以直接使用浏览器访问 浏览器是基于tcp/ip协议的
  */
 public class Server {
+    //tcp server
     private ServerSocket server;
 
     public static void main(String[] args) throws IOException {
