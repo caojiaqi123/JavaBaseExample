@@ -30,12 +30,8 @@ public class Server4 {
         Socket client = null;
         try {
             client = server.accept();
-            byte[] data = new byte[20480];
-            int length = client.getInputStream().read(data);
-
-            String info = new String(data, 0, length);
-            System.out.println(info.trim());
-
+            Request request = new Request(client.getInputStream());
+            System.out.println(request.getParamter("uname"));
             //响应
             response(client);
         } catch (IOException e) {
