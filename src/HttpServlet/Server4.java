@@ -30,22 +30,17 @@ public class Server4 {
         Socket client = null;
         try {
             client = server.accept();
+            Servlet servlet = new Servlet();
             Request request = new Request(client.getInputStream());
-            System.out.println(request.getParamter("uname"));
-            //响应
-            response(client);
+            Response response = new Response(client.getOutputStream());
+            servlet.service(request, response);
+
+            response.pushToClient(200);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void response(Socket client) throws IOException {
-        StringBuilder sbContext = new StringBuilder();
-        sbContext.append("<html>\n<head><title>第一个html</title></head>\n<body>\n" +
-                "正文\n<p>段落</p>\n</body>\n</html>");
 
-        Response rsp = new Response(client);
-        rsp.print(sbContext.toString());
-        rsp.pushToClient(404);
-    }
 }
