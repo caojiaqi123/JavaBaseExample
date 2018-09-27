@@ -69,7 +69,7 @@ public class Response {
         }
         headInfo.append(CRLF);
         headInfo.append("Content-Type: text/html; charset=utf-8").append(CRLF);
-        headInfo.append("Content-Length:").append(CRLF).append(LENGTH).append(CRLF);
+        headInfo.append("Content-Length:").append(BLANK).append(LENGTH).append(CRLF);
         headInfo.append(CRLF);
     }
 
