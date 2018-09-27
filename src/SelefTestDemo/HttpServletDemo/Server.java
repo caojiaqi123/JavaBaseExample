@@ -21,9 +21,16 @@ public class Server {
     private void receive() throws IOException {
         Socket client = server.accept();//等待客户端返回
 
-        //requstt可以获得一些参数
-        Request request = new Request(client.getInputStream());
-        //System.out.println(request.getParam("uname"));
+        new Thread(new Dispatcher(client)).start();
+
+        //requst 用于获取参数
+        // Request request = new Request(client.getInputStream());
+        // Response response = new Response(client.getOutputStream());
+        //
+        // response.print(getHtmlBody(request));
+        //
+        // response.pushToClient(200);
+        // System.out.println(request.getParam("uname"));
     }
 
     /**
@@ -35,5 +42,13 @@ public class Server {
         //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
         String context = new String(date, 0, length);
         System.out.println(context);
+    }
+
+    private String getHtmlBody(Request request) {
+        StringBuilder sbContext = new StringBuilder();
+        sbContext.append("<html>\n<head><title>登录</title></head>\n<body>\n");
+        sbContext.append("欢迎：").append(request.getParam("uname")).append(" 回来");
+        sbContext.append("正文\n<p>段落</p>\n</body>\n</html>");
+        return sbContext.toString();
     }
 }
