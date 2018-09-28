@@ -116,6 +116,6 @@ public class Request {
     }
 
     public String getUrl() {
-        return url;
+        return url.trim();
     }
 }

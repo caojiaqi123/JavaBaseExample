@@ -32,10 +32,19 @@ public class Dispatcher implements Runnable {
 
     @Override
     public void run() {
-        Servlet servlet = new Servlet();
+        int code = 200;
+        Servlet servlet = WebApp.getServlet(req.getUrl());
         try {
-            servlet.service(req, rep);
-            rep.pushToClient(200);
+            if (servlet == null) {
+                code = 404;
+            } else {
+                servlet.service(req, rep);
+            }
+        } catch (Exception e) {
+            code = 500;
+        }
+        try {
+            rep.pushToClient(code);
         } catch (IOException e) {
 
         }
