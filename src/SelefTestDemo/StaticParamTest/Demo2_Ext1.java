@@ -19,11 +19,12 @@ public class Demo2_Ext1 {
         System.out.println("构造函数");
     }
 
-    /**
-     * 打印顺序应该是？
-     * 代码块 -》构造函数——》静态代码块-》代码块-》构造函数
-     */
+
     public static void main(String[] args) {
         new Demo2_Ext1();
     }
 }
+/**
+ * 打印顺序应该是？
+ * 代码块 -》构造函数——》静态代码块-》代码块-》构造函数
+ */

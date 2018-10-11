@@ -19,6 +19,7 @@ public class Demo01 {
                 }
             }.start();
         }
+
     }
 
     public synchronized void add(String name) {

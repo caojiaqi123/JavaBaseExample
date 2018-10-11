@@ -20,7 +20,7 @@ public class Demo3 {
 
 class Base {
     static int basex = 123;
-    //  static child s = new child();//如果在父类
+    static child s = new child();//如果在父类
 
     static {
         System.out.println("父类静态代码块");
