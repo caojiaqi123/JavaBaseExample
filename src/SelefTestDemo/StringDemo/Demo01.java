@@ -3,9 +3,11 @@ package SelefTestDemo.StringDemo;
 /**
  * @param
  * @description intern方法 调用时查看常量迟中是否有该常量
- * 如果有 则返回常量池中的引用，如果没有 则在常量池中生成一个对原字符对引用
+ * 如果有则返回常量池中的引用，如果没有则在常量池中生成一个对原字符对引用
  * 另外1。7以后 常量池被移到堆当中
  * 注意下对象生成的过程
+ * new String("abc"); 这句话其实创建了两个对象 一个常量池对象 abc 一个堆中字符串 内容是abc
+ * 并不会将两个进行关联 只有使用了该方法 intern 才会进行转换
  * 具体可以看下文章 https://blog.csdn.net/seu_calvin/article/details/52291082
  */
 public class Demo01 {
@@ -13,9 +15,9 @@ public class Demo01 {
         // test1();
 
         //test2();
-
-        test4();
-        test5();
+        // test3();
+        // test4();
+        // test5();
         test6();
     }
 
