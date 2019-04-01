@@ -1,1 +1,2 @@
 并发编程相关例子
+4.volatie和synchronized的区别？volatile只保证可见不保证原子性，synchronized两者都保证不过比较低效率
